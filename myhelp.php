@@ -43,7 +43,7 @@
 </div>
 
 
-<div class="index">
+<div class="front-page">
   <?php get_header(); ?>
   <section>content</section>
   <section>content</section>

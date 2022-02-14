@@ -74,6 +74,7 @@ function my_menus()
 add_action('init', 'my_menus');
 
 
+// Wordpress (Готовый navbar для functions.php)
 class bootstrap_4_walker_nav_menu extends Walker_Nav_menu
 {
 

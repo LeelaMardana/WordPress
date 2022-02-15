@@ -479,7 +479,12 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 227px;
+  object-fit: cover;
+}
+
+.img-fluid-big {
+  height: 390px;
 }
 
 .img-thumbnail {

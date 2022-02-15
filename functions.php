@@ -16,6 +16,8 @@ if (!function_exists('my_setup')) {
     ]);
     // Добавляем динамический <title>
     add_theme_support('title-tag');
+    // Добавляем вроде как картинки
+    add_theme_support('post-thumbnails');
   }
   // хук событие
   add_action('after_setup_theme', 'my_setup');

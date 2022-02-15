@@ -20,67 +20,70 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="blog-post">
-              <img src="images/blog/blog-1.jpg" alt="" class="img-fluid">
-              <div class="mt-4 mb-3 d-flex">
-                <div class="post-author mr-3">
-                  <i class="fa fa-user"></i>
-                  <span class="h6 text-uppercase">Михаил Третьяков</span>
-                </div>
-
-                <div class="post-info">
-                  <i class="fa fa-calendar-check"></i>
-                  <span>20 июня 2020</span>
+          <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+              <div class="col-lg-6">
+                <div class="blog-post">
+                  <?php
+                  //должно находится внутри цикла
+                  if (has_post_thumbnail()) {
+                    the_post_thumbnail(
+                      'large',
+                      array(
+                        'class' => "img-fluid",
+                        'alt'   => "post-img",
+                      )
+                    );
+                  } else {
+                    echo '<img class="img-fluid" src="' . get_bloginfo("template_url") . '/images/default.jpg" alt="img-error" />';
+                  }
+                  ?>
+                  <img src="images/blog/blog-1.jpg" alt="" class="img-fluid">
+                  <div class="mt-4 mb-3 d-flex">
+                    <div class="post-author mr-3">
+                      <i class="fa fa-user"></i>
+                      <span class="h6 text-uppercase"><?php the_author(); ?></span>
+                    </div>
+                    <div class="post-info">
+                      <i class="fa fa-calendar-check"></i>
+                      <span><?php the_time('j F Y'); ?></span>
+                    </div>
+                  </div>
+                  <a href="<? echo get_the_permalink() ?>" class="h4 "><?php the_title(); ?></a>
+                  <p class="mt-3"><?php the_excerpt(); ?></p>
+                  <a href="<? echo get_the_permalink() ?>" class="read-more">Читать статью <i class="fa fa-angle-right"></i></a>
                 </div>
               </div>
-              <a href="blog-single.html" class="h4 ">Маркетинговые фишки для нового сайта</a>
-              <p class="mt-3">Как внедрить несколько значимых фишек на своем новом сайте и выйти в топ, даже если вы до этого не занимались SEO.</p>
-              <a href="blog-single.html" class="read-more">Читать статью <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="blog-post">
-              <img src="images/blog/blog-2.jpg" alt="" class="img-fluid">
-              <div class="mt-4 mb-3 d-flex">
-                <div class="post-author mr-3">
-                  <i class="fa fa-user"></i>
-                  <span class="h6 text-uppercase">Олег Торпяков</span>
-                </div>
-
-                <div class="post-info">
-                  <i class="fa fa-calendar-check"></i>
-                  <span>12 апреля 2020</span>
-                </div>
-              </div>
-              <a href="blog-single.html" class="h4 ">Использовать шаблоны — плохо? </a>
-              <p class="mt-3">Отвечаю на больной вопрос от наших клиентов: стоит ли использовать шаблоны для сайта в своих проектах.</p>
-              <a href="blog-single.html" class="read-more">Читать статью <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
+            <?php endwhile;
+          else : ?>
+            Записей нет.
+          <?php endif; ?>
         </div>
 
         <div class="row">
-          <div class="col-lg-12">
-            <div class="blog-post">
-              <img src="images/blog/blog-lg.jpg" alt="" class="img-fluid">
-              <div class="mt-4 mb-3 d-flex">
-                <div class="post-author mr-3">
-                  <i class="fa fa-user"></i>
-                  <span class="h6 text-uppercase">Марина Цветкова</span>
-                </div>
+          <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+              <div class="col-lg-12">
+                <div class="blog-post">
+                  <img src="images/blog/blog-lg.jpg" alt="" class="img-fluid">
+                  <div class="mt-4 mb-3 d-flex">
+                    <div class="post-author mr-3">
+                      <i class="fa fa-user"></i>
+                      <span class="h6 text-uppercase">Марина Цветкова</span>
+                    </div>
 
-                <div class="post-info">
-                  <i class="fa fa-calendar-check"></i>
-                  <span>30 марта 2020</span>
+                    <div class="post-info">
+                      <i class="fa fa-calendar-check"></i>
+                      <span>30 марта 2020</span>
+                    </div>
+                  </div>
+                  <a href="blog-single.html" class="h4 "><?php the_title(); ?>
+                    <p class="mt-3">Что делать, если вы наняли некомпетентного специалиста для продвижения? Можно ли спасти проект, который попал в теневой бан или нет.</p>
+                    <a href="blog-single.html" class="read-more">Читать статью <i class="fa fa-angle-right"></i></a>
                 </div>
               </div>
-              <a href="blog-single.html" class="h4 ">Провал в стратегии продвижения</a>
-              <p class="mt-3">Что делать, если вы наняли некомпетентного специалиста для продвижения? Можно ли спасти проект, который попал в теневой бан или нет.</p>
-              <a href="blog-single.html" class="read-more">Читать статью <i class="fa fa-angle-right"></i></a>
-            </div>
-          </div>
+            <?php endwhile;
+          else : ?>
+            Записей нет.
+          <?php endif; ?>
         </div>
 
         <div class="row">

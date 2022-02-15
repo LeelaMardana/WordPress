@@ -34,7 +34,7 @@
                       )
                     );
                   } else {
-                    echo '<img class="img-fluid" src="' . get_bloginfo("template_url") . '/images/default.jpg" alt="img-error" />';
+                    echo '<img class="img-fluid" src="' . get_template_directory_uri() . '/images/default.jpg" alt="img-error" />';
                   }
                   ?>
                   <img src="images/blog/blog-1.jpg" alt="" class="img-fluid">

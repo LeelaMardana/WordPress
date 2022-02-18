@@ -18,6 +18,7 @@ if (!function_exists('my_setup')) {
     add_theme_support('title-tag');
     // Добавляем вроде как картинки
     add_theme_support('post-thumbnails');
+    set_post_thumbnail_size(730, 390, true); // размер миниатюры поста по умолчанию
   }
   // хук событие
   add_action('after_setup_theme', 'my_setup');
@@ -129,4 +130,22 @@ class bootstrap_4_walker_nav_menu extends Walker_Nav_menu
 
     $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
   }
+}
+
+## отключаем создание миниатюр файлов для указанных размеров
+add_filter('intermediate_image_sizes', 'delete_intermediate_image_sizes');
+function delete_intermediate_image_sizes($sizes)
+{
+  // размеры которые нужно удалить
+  return array_diff($sizes, [
+    'medium_large',
+    'large',
+    '1536x1536',
+    '2048x2048',
+  ]);
+}
+
+add_action('widgets_init', 'my_widgets_init');
+function my_widgets_init()
+{
 }

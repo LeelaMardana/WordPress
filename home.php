@@ -31,17 +31,15 @@
                       //должно находится внутри цикла
                       if (has_post_thumbnail()) {
                         the_post_thumbnail(
-                          'large',
+                          'post-thumbnail',
                           array(
-                            'class' => "img-fluid img-fluid-big",
-                            'alt'   => "post-img",
+                            'class' => "img-fluid w-100",
                           )
                         );
                       } else {
-                        echo '<img class="img-fluid" src="' . get_template_directory_uri() . '/images/default.jpg" alt="img-error" />';
+                        echo '<img class="img-fluid w-100" src="' . get_template_directory_uri() . '/images/default.jpg" alt="img-error" />';
                       }
                       ?>
-                      <img src="images/blog/blog-1.jpg" alt="" class="img-fluid">
                       <div class="mt-4 mb-3 d-flex">
                         <div class="post-author mr-3">
                           <i class="fa fa-user"></i>
@@ -66,17 +64,15 @@
                       //должно находится внутри цикла
                       if (has_post_thumbnail()) {
                         the_post_thumbnail(
-                          'large',
+                          'post-thumbnail',
                           array(
-                            'class' => "img-fluid",
-                            'alt'   => "post-img",
+                            'class' => "img-fluid w-100",
                           )
                         );
                       } else {
-                        echo '<img class="img-fluid" src="' . get_template_directory_uri() . '/images/default.jpg" alt="img-error" />';
+                        echo '<img class="img-fluid w-100" src="' . get_template_directory_uri() . '/images/default.jpg" alt="img-error" />';
                       }
                       ?>
-                      <img src="images/blog/blog-1.jpg" alt="" class="img-fluid">
                       <div class="mt-4 mb-3 d-flex">
                         <div class="post-author mr-3">
                           <i class="fa fa-user"></i>
@@ -96,12 +92,20 @@
               }
               ?>
 
-            <?php endwhile;
+            <?php
+            endwhile;
           else : ?>
             Записей нет.
           <?php endif; ?>
+          <div class="col-lg-12">
+            <?php the_posts_pagination(array(
+              'prev_text'    => __('<span class="p-2 border">« Предыдущие посты</span>'),
+              'next_text'    => __('<span class="p-2 border">Следующие посты »</span>'),
+              'before_page_number' => '<span class="p-2 border">',
+              'after_page_number'  => '</span>'
+            )); ?>
+          </div>
         </div>
-
       </div>
       <div class="col-lg-4">
         <div class="row">

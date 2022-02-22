@@ -148,4 +148,12 @@ function delete_intermediate_image_sizes($sizes)
 add_action('widgets_init', 'my_widgets_init');
 function my_widgets_init()
 {
+  register_sidebar(array(
+    'name'          => esc_html__('Сайдбар', 'warcraft'),
+    'id'            => "sidebar-blog",
+    'before_widget' => '<section id="%1$s" class="sidebar-widget %2$s">',
+    'after_widget'  => "</section>",
+    'before_title'  => '<h5 class="mb-3">',
+    'after_title'   => "</h5>",
+  ));
 }

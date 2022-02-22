@@ -8,10 +8,10 @@
           <div class="row">
             <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
               <div class="banner-content content-padding">
-                <h5 class="subtitle"><?php echo get_post_meta($post->ID, 'subtitle', true); ?></h5>
+                <h5 class="subtitle"><?php echo get_post_meta($post->ID, 'banner-subtitle', true); ?></h5>
                 <h1 class="banner-title"><?php echo get_post_meta($post->ID, 'banner-title', true); ?></h1>
                 <p>
-                  <?php echo get_post_meta($post->ID, 'banner-description', true); ?>
+                  <?php echo get_post_meta($post->ID, 'banner-text', true); ?>
                 </p>
                 <a href="#" class="btn btn-white btn-circled">Начать сотрудничество</a>
               </div>

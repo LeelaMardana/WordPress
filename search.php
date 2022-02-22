@@ -6,8 +6,11 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
         <div class="banner-content content-padding">
-          <h1 class="text-white">Журнал</h1>
-          <p>Полезные статьи про маркетинг и диджитал</p>
+          <h1 class="text-white">
+            <?php
+            /* translators: %s: search query. */
+            printf(esc_html__('Результаты поиска по&nbsp;фразе: %s', 'search-php'), '<span>' . get_search_query() . '</span>');
+            ?></h1>
         </div>
       </div>
     </div>

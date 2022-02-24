@@ -1410,6 +1410,10 @@ BLOG SINGLE
   color: #999;
 }
 
+.ttl li{
+  text-transform: lowercase;
+}
+
 /*-------------------------------
  RESPONSIVE LAYOUT
 ---------------------------------*/

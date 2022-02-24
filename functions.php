@@ -68,7 +68,8 @@ function my_menus()
   // Собираем несколько зон (областей) меню
   $locations = array(
     'header'  => __('Header Menu', 'warcraft'),
-    'footer'   => __('Footer Menu', 'warcraft'),
+    'footer_left'   => __('Footer Left Menu', 'warcraft'),
+    'footer_right'   => __('Footer Right Menu', 'warcraft'),
   );
   // Регистрируем области меню, которые лежат в переменной $locations
   register_nav_menus($locations);
@@ -149,12 +150,28 @@ add_action('widgets_init', 'my_widgets_init');
 function my_widgets_init()
 {
   register_sidebar(array(
-    'name'          => esc_html__('Сайдбар', 'warcraft'),
+    'name'          => esc_html__('Сайдбар в блоге', 'warcraft'),
     'id'            => "sidebar-blog",
     'before_widget' => '<section id="%1$s" class="sidebar-widget %2$s">',
     'after_widget'  => "</section>",
     'before_title'  => '<h5 class="mb-3">',
     'after_title'   => "</h5>",
+  ));
+  register_sidebar(array(
+    'name'          => esc_html__('Сайдбар в подвале (текст)', 'warcraft'),
+    'id'            => "sidebar-footer-text",
+    'before_widget' => '<div class="footer-widget footer-link %2$s">',
+    'after_widget'  => "</div>",
+    'before_title'  => '<h4>',
+    'after_title'   => "</h4>",
+  ));
+  register_sidebar(array(
+    'name'          => esc_html__('Сайдбар в подвале (контакты)', 'warcraft'),
+    'id'            => "sidebar-footer-contact",
+    'before_widget' => '<div class="footer-widget footer-text %2$s">',
+    'after_widget'  => "</div>",
+    'before_title'  => '<h4>',
+    'after_title'   => "</h4>",
   ));
 }
 

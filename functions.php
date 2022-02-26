@@ -7,7 +7,7 @@ if (!function_exists('my_setup')) {
   {
     //  Добавляем пользовательский логотип
     add_theme_support('custom-logo', [
-      'height'      => 55,
+      'height'      => 50,
       'width'       => 130,
       'flex-width'  => false,
       'flex-height' => false,
